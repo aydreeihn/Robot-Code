@@ -4,15 +4,17 @@
 
 task main()
 {
+int flg =0;
 while (true)
 {
-  motor[rightBmotor] = (vexRT[Ch3] - vexRT[Ch4])/2;
-  motor[leftBmotor] = (vexRT[Ch3] + vexRT[Ch4])/2;
-  
+	flg = 0;
+	
   	if((|vexRT[Ch3]| > 15) && (|vexRT[Ch4]| < 15))
 	{
 		motor[rightBmotor] = vexRT[Ch3];
 		motor[leftBmotor] = vexRT[Ch3];
+		
+		flg = 1;
 	}
 		
 		
@@ -20,13 +22,28 @@ while (true)
 	{
 		motor[leftBmotor] = vexRT[Ch4];
 		motor[rightBmotor] = vexRT[-Ch4];
+		
+		flg = 1;
 	}
 	
 	if(vexRT[Ch1] >= 15)
+	{
 		motor[leftBmotor] = vexRT[Ch1];
 		
+		flg = 1;
+	}
+		
 	if(vexRT[Ch1] <= 15)
+	{
 		motor[rightBmotor] = |vexRT[Ch1]|;
-
+		
+		flg = 1;
+	}
+		
+	if(flg = 0)
+	{
+		  motor[rightBmotor] = (vexRT[Ch3] - vexRT[Ch4])/2;
+		  motor[leftBmotor] = (vexRT[Ch3] + vexRT[Ch4])/2;
+	}
 }
 }

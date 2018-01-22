@@ -9,7 +9,7 @@ while (true)
 {
 	flg = 0;
 	
-  	if((|vexRT[Ch3]| > 15) && (|vexRT[Ch4]| < 15))
+  	if((abs(vexRT[Ch3]) > 15) && (abs(vexRT[Ch4]) < 15))
 	{
 		motor[rightBmotor] = vexRT[Ch3];
 		motor[leftBmotor] = vexRT[Ch3];
@@ -18,7 +18,7 @@ while (true)
 	}
 		
 		
-	if((|vexRT[Ch4]| >= 15) && (|vexRT[Ch3]| <= 15))
+	if((abs(vexRT[Ch4]) >= 15) && (abs(vexRT[Ch3]) <= 15))
 	{
 		motor[leftBmotor] = vexRT[Ch4];
 		motor[rightBmotor] = vexRT[-Ch4];
@@ -35,15 +35,14 @@ while (true)
 		
 	if(vexRT[Ch1] <= 15)
 	{
-		motor[rightBmotor] = |vexRT[Ch1]|;
+		motor[rightBmotor] = abs(vexRT[Ch1]);
 		
 		flg = 1;
 	}
 		
-	if(flg = 0)
+	if(flg == 0)
 	{
 		  motor[rightBmotor] = (vexRT[Ch3] - vexRT[Ch4])/2;
 		  motor[leftBmotor] = (vexRT[Ch3] + vexRT[Ch4])/2;
 	}
-}
 }
